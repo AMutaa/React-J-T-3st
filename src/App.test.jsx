@@ -1,21 +1,19 @@
 import { total } from './App';
+import { add } from './Add';
 
-const add = jest.fn(() => 3);
-
-
-
-// Unit test (because it only tests one thing)
-test('add', () => {
-  // const value = add(1, 2)
-  // expect(value).toBe(3)
-  // // Or
-  expect(add(1, 2)).toBe(3);
-  expect(add).toHaveBeenCalledTimes(1);
-  expect(add).toHaveBeenCalledWith(1, 2);
-})
+jest.mock('./Add', () => ({
+  add: jest.fn(() => 25)
+}))
 
 // Integration test(test things working together ie functions)
-// test('total', () => {
-//   expect(total(5, 20)).toBe('$25')
-// })
+
+test('total', () => {
+  expect(total(5, 20)).toBe('$25');
+  expect(add).toHaveBeenCalledTimes(1);
+
+  //Redundant
+  add.mockImplementation(() => 30);
+  expect(total(5, 25)).toBe('$30');
+  expect(add).toHaveBeenCalledTimes(2)
+})
 
