@@ -77,7 +77,7 @@ parcelRequire = (function (modules, cache, entry) {
 
   // Override the current require with this new one
   return newRequire;
-})({3:[function(require,module,exports) {
+})({4:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -86,7 +86,20 @@ Object.defineProperty(exports, "__esModule", {
 var add = exports.add = function add(x, y) {
   return x + y;
 };
-},{}],2:[function(require,module,exports) {
+},{}],3:[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.total = undefined;
+
+var _Add = require('./Add');
+
+var total = exports.total = function total(shipping, subTotal) {
+  return '$' + (0, _Add.add)(shipping, subTotal);
+};
+},{"./Add":4}],2:[function(require,module,exports) {
 'use strict';
 
 require('./App');
@@ -120,7 +133,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '53671' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '64540' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
