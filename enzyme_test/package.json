@@ -35,5 +35,5 @@
     "testPathIgnorePatterns": [
       "<rootDir>/__tests__/setup/"
     ]
-  },
+  }
 }
